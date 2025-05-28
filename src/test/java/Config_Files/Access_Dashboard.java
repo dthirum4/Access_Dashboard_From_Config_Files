@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Config_Files.Select_Credentials_from_TestData;
 import Config_Files.Push_Elapsed_Time_to_Snowflake;
-import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Access_Dashboard {
 
@@ -30,8 +30,7 @@ public class Access_Dashboard {
 	static Select_Credentials_from_TestData credentials = new Select_Credentials_from_TestData();
 
 	public static int get_dashboard_list() throws Exception {
-		System.out.println("Automation Started.....");
-		///WebDriverManager.chromedriver().setup();
+		//WebDriverManager.chromedriver().setup();
 		//WebDriver driver = new ChromeDriver();
 		System.setProperty("webdriver.chrome.driver",".\\Drivers\\chromedriver.exe" );
 		driver=new ChromeDriver();
@@ -44,6 +43,9 @@ public class Access_Dashboard {
 
 			// Login_Process
 			Thread.sleep(5000);
+			
+			//access power Bi dashboard using application id and secret key value
+			
 
 			// TDD Authentication
 			select_email_id = credentials.get_config_non_user_credentials(0, 0);
