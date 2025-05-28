@@ -30,6 +30,7 @@ public class Access_Dashboard {
 	static Select_Credentials_from_TestData credentials = new Select_Credentials_from_TestData();
 
 	public static int get_dashboard_list() throws Exception {
+		System.out.println("Automation Started.....");
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		try {
