@@ -31,8 +31,10 @@ public class Access_Dashboard {
 
 	public static int get_dashboard_list() throws Exception {
 		System.out.println("Automation Started.....");
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
+		///WebDriverManager.chromedriver().setup();
+		//WebDriver driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver",".\\Drivers\\chromedriver.exe" );
+		driver=new ChromeDriver();
 		try {
 			System.out.println("Entered into get_dashboard_list");
 			// launch_chrome
