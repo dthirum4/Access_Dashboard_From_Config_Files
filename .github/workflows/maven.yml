@@ -32,7 +32,7 @@ jobs:
 
     - name: Install Chrome
       run: |
-        wget https://d1.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo apt update
         sudo apt install -y ./google-chrome-stable_current_amd64.deb
         
