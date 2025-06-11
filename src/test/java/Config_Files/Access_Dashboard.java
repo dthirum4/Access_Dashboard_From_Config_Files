@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import Config_Files.Select_Credentials_from_TestData;
 import Config_Files.Push_Elapsed_Time_to_Snowflake;
 //import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Access_Dashboard {
 
@@ -39,7 +40,16 @@ public class Access_Dashboard {
 		}else{
 		System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
 		}
-		driver=new ChromeDriver();
+
+		ChromeOptions options = new ChromeOptions();
+		boolean isHeadless = true;
+		if(isHeadless){
+			options.addArguments ("--headless=new");
+			options.addArguments ("--no-sandbox");
+			options.addArguments ("--disable-dev-shm-usage");
+		}	
+					      
+		driver=new ChromeDriver(options);
 		try {
 			System.out.println("Entered into get_dashboard_list");
 			// launch_chrome
