@@ -32,7 +32,13 @@ public class Access_Dashboard {
 	public static int get_dashboard_list() throws Exception {
 		//WebDriverManager.chromedriver().setup();
 		//WebDriver driver = new ChromeDriver();
+		System.out.println("Welcome...");
+		String os=System.getProperty("os.name").toLowerCase();
+		if(os.contains("win)){
 		System.setProperty("webdriver.chrome.driver",".\\Drivers\\chromedriver.exe" );
+		}else{
+		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+		}
 		driver=new ChromeDriver();
 		try {
 			System.out.println("Entered into get_dashboard_list");
