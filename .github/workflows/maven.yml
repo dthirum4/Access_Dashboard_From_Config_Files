@@ -31,11 +31,21 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Install Chrome
-      run: browser-actions/setup-chrome@v1
-
+      run: |
+        wget https://d1.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt update
+        sudo apt install -y ./google-chrome-stable_current_amd64.deb
+        
     - name: Install Chromedriver
-      run: nanasess/setup-chromedriver@v2
-      
+      uses: nanasess/setup-chromedriver@v2
+      with:
+        chromedriver-version: 'latest'
+
+    - name: Set chromedriver executable path
+      run: |
+        echo "CHROMEDRIVER=$(which chromedriver)" >> $GITHUB_ENV
+        echo "PATH=$PATH:$(dirname $(which chromedriver))" >> $GITHUB_ENV
+        
     - name: Compile java class
       run: mvn test-compile
 
