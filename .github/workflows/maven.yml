@@ -31,10 +31,10 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Compile java class
-      run: javac src/test/java/Config_Files/Access_Dashboard.java
+      run: mvn test-compile
 
     - name: Run java class
-      run: java -cp src/test/java Config_Files.Access_Dashboard
+      run: mvn exec:java
 
       
 
