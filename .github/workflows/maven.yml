@@ -50,7 +50,7 @@ jobs:
       run: mvn test-compile
 
     - name: Run java class
-      run: mvn exec:java
+      run: mvn exec:java -Dexec.mainClass="Config_Files.Access_Dashboard" -Dheadless=true
 
       
 
