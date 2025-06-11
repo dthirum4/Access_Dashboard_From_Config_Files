@@ -29,6 +29,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    - name: Install Chrome
+      run: browser-actions/setup-chrome@v1
+
+    - name: Install Chromedriver
+      run: nanasess/setup-chromedriver@v2
       
     - name: Compile java class
       run: mvn test-compile
