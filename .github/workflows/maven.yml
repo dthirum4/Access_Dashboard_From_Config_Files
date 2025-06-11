@@ -29,5 +29,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      
+      - name: Compile java class
+      run: javac src/test/java/Config_Files/Access_Dashboard.java
+
+      - name: Run java class
+      run: java -cp src/test/java Config_Files.Access_Dashboard
+
+      
 
    
