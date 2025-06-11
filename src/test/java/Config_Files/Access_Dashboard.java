@@ -35,9 +35,9 @@ public class Access_Dashboard {
 		System.out.println("Welcome...");
 		String os=System.getProperty("os.name").toLowerCase();
 		if(os.contains("win")){
-		System.setProperty("webdriver.chrome.driver",".\\Drivers\\chromedriver.exe" );
+		System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver.exe" );
 		}else{
-		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
 		}
 		driver=new ChromeDriver();
 		try {
