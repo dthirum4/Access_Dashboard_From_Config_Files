@@ -186,6 +186,15 @@ public class Access_Dashboard {
 		}
 		return 1;
 	}
+	public static void captureScreenshot(WebDriver driver,String name) throws Exception
+	{
+		try{
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(srcFile, new File("screenshots/"+name+".png"));
+		}catch (Exception e){
+			e.printStackTrace();
+        }
+	}
 
 	// send email with spreadsheet
 	public static void send_email() throws Exception {
