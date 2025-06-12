@@ -96,14 +96,14 @@ public class Access_Dashboard {
 				long startTime = System.currentTimeMillis();
 				String Start_Date_Time = dateFormat.format(start_date);
 				System.out.println("Start Time: " + Start_Date_Time);
-
+				
 				// To_find_response_time_of_SPOG_RCM (End_time)
 				//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 				// capture_the_element_to_make_sure_the_page_is_fully_loaded
-				Thread.sleep(15000);
+				Thread.sleep(20000);
 				// To_find_response_time_of_SPOG_RCM (End_time)
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 				WebElement Dest_Element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(./text(),'" + dashboard_target_value + "')]")));
 				// exit if destination element is not found
 				if (Dest_Element == null) {
