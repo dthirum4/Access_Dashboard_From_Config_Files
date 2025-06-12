@@ -97,7 +97,7 @@ public class Access_Dashboard {
 				System.out.println("Start Time: " + Start_Date_Time);
 
 				// To_find_response_time_of_SPOG_RCM (End_time)
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+				//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 				// capture_the_element_to_make_sure_the_page_is_fully_loaded
 				Thread.sleep(15000);
