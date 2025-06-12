@@ -100,12 +100,11 @@ public class Access_Dashboard {
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 				// capture_the_element_to_make_sure_the_page_is_fully_loaded
-				Thread.sleep(20000);
+				Thread.sleep(25000);
 
 				// set destination element to capture it in report
-				WebElement Dest_Element = (WebElement) wait.until
-						(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[contains(./text(),'" + dashboard_target_value + "')]")));
-				//WebElement Dest_Element = driver.findElement(By.xpath("//*[contains(./text(),'" + dashboard_target_value + "')]"));
+				//WebElement Dest_Element = (WebElement) wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[contains(./text(),'" + dashboard_target_value + "')]")));
+				WebElement Dest_Element = driver.findElement(By.xpath("//*[contains(./text(),'" + dashboard_target_value + "')]"));
 				// exit if destination element is not found
 				if (Dest_Element == null) {
 					System.out.println("Destination element not found. Exiting.");
