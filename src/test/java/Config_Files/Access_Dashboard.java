@@ -16,6 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.JavascriptExecutor;
 
 import Config_Files.Select_Credentials_from_TestData;
 import Config_Files.Push_Elapsed_Time_to_Snowflake;
@@ -96,7 +97,9 @@ public class Access_Dashboard {
 				long startTime = System.currentTimeMillis();
 				String Start_Date_Time = dateFormat.format(start_date);
 				System.out.println("Start Time: " + Start_Date_Time);
-				
+
+				new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+						webDriver ->((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 				// To_find_response_time_of_SPOG_RCM (End_time)
 				//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
