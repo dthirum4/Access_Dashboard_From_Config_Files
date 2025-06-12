@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -98,13 +100,21 @@ public class Access_Dashboard {
 				String Start_Date_Time = dateFormat.format(start_date);
 				System.out.println("Start Time: " + Start_Date_Time);
 
+				Thread.sleep(20000);
+
 				new WebDriverWait(driver, Duration.ofSeconds(30)).until(
 						webDriver ->((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-				// To_find_response_time_of_SPOG_RCM (End_time)
-				//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-				// capture_the_element_to_make_sure_the_page_is_fully_loaded
-				Thread.sleep(20000);
+				System.out.println("Current URL:" +driver.getCurrentUrl());
+				System.out.println("Current Title:" +driver.getTitle());
+				System.out.println("Looking for xpath:");
+
+				List<WebElement> elements = driver.findElements(By.xpath("//*[contains(./text(),'" + dashboard_target_value + "')]"));
+				System.out.println("Elements found: " + elements.size()+" elements");
+				
+				File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(srcFile, new File("screenshot.png")); 
+				
 				// To_find_response_time_of_SPOG_RCM (End_time)
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 				WebElement Dest_Element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(./text(),'" + dashboard_target_value + "')]")));
