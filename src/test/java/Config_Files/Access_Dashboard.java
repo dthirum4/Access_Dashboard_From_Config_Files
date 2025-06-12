@@ -69,11 +69,15 @@ public class Access_Dashboard {
 
 			// TDD Authentication
 			select_email_id = credentials.get_config_non_user_credentials(0, 0);
+			System.out.println("Email id fetched :" + select_email_id);
 			driver.findElement(By.id("email")).sendKeys(select_email_id);
 			WebElement submit = driver.findElement(By.id("submitBtn"));
 			submit.click();
 			
-			
+			System.out.println("successful Login");
+
+			File login_SS = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(login_SS, new File("login_screenshot.png"));
 			Thread.sleep(40000);
 
 			int dashboard_list_row_value = 1;
