@@ -56,7 +56,12 @@ jobs:
 
     - name: Run java class
       run: mvn exec:java -Dexec.mainClass="Config_Files.Access_Dashboard" -Dheadless=true
-
+      
+    - name: upload screenshot
+      uses: actions/upload-artifact@v3
+      with:
+        name: failed-screenshot
+        path: screenshot.png
       
 
    
