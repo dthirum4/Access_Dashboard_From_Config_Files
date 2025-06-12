@@ -72,13 +72,12 @@ public class Access_Dashboard {
 			System.out.println("Email id fetched :" + select_email_id);
 			driver.findElement(By.id("email")).sendKeys(select_email_id);
 			WebElement submit = driver.findElement(By.id("submitBtn"));
+			captureScreenshot(driver, "before_submit_button");
 			submit.click();
 			
 			System.out.println("successful Login");
 
-			File login_SS = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-				FileUtils.copyFile(login_SS, new File("login_screenshot.png"));
-			Thread.sleep(40000);
+			captureScreenshot(driver, "after login");
 
 			int dashboard_list_row_value = 1;
 
@@ -98,6 +97,8 @@ public class Access_Dashboard {
 				System.out.println("Dashboard Target Value: " + dashboard_target_value);
 
 				driver.get(dashboard_link);
+
+				captureScreenshot(driver, "after_dashborad_fetched");
 
 				Date start_date = new Date();
 				long startTime = System.currentTimeMillis();
