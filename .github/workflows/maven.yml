@@ -45,7 +45,12 @@ jobs:
         sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
         chromedriver --version
-        
+
+    - name: show Structure for debugging
+      run: |
+       pwd
+       ls -R
+      
     - name: Compile java class
       run: mvn test-compile
 
